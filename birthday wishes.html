@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 Birthday Wishes! 🎉</title>
+    <link rel="stylesheet" href="wishes.css"> <!-- This line helps for the CSS joining -->
+</head>
+<body>
+    <div id="container">
+        <img id="cake" src="birthdayflower.png" alt="Delicious Birthday Cake">  <!-- Adding cake image -->
+        <p id="message">🎂 Happy Birthday! 🎉</p>
+        <p>You are truly valued in my life, and I’ve written a special wish just for you!</p>
+        <input type="text" id="nameInput" placeholder="Enter your name... ">  <!-- Input the name -->
+        <button id="wishButton" onclick="sendBirthdayWish()">Click here to show the greetings.</button>
+        <div id="greetingMessage"></div>  <!-- Div to display the greeting message -->
+    </div>
+
+    <audio id="birthdaySound" src="birthdaymusic.mp3"></audio>  <!-- Add audio for the birthday sound -->
+    <script>
+        function sendBirthdayWish() {
+            var name = document.getElementById('nameInput').value;
+            var greetingDiv = document.getElementById('greetingMessage');
+    
+            if (name.trim() !== "") {
+                var birthdayMessage = `🎈 Happy Birthday, ${name}! 🎈<br><br>
+                I hope your day is a fantastic celebration of you, filled with love, laughter, and everything your heart desires.<br>
+                Surround yourself with those who truly care about you and enjoy every moment of your special day.<br>
+                Here’s to creating joyful memories, exploring new adventures, and welcoming all the happiness this year has to offer. You deserve all the joy today and always!`;
+    
+                // Play the birthday sound
+                document.getElementById('birthdaySound').play();
+                
+                // Display the birthday message
+                greetingDiv.innerHTML = birthdayMessage;
+                greetingDiv.style.display = "block";
+                document.getElementById('nameInput').value = "";  // Clear input
+            } else {
+                alert("🌟 Oops! Please enter your name before sending your birthday wish.");
+            }
+        }
+    </script>
+</body>
+</html>
